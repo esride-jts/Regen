@@ -48,12 +48,12 @@ int main(int argc, char *argv[]) {
   regen::Regex r = regen::Regex(regex, option);
 
   if (n) {
-    printf("NFA state num:  %"PRIuS"\n", r.state_exprs().size());
+    printf("NFA state num:  %\n", r.state_exprs().size());
   }
   if (d) {
     r.Compile(Regen::Options::O0);
     if (m) r.MinimizeDFA();
-    printf("DFA state num: %"PRIuS"\n", r.dfa().size());
+    printf("DFA state num: %\n", r.dfa().size());
   }
   if (s) {
 #ifdef REGEN_ENABLE_PARALLEL

@@ -89,7 +89,7 @@ struct mmap_t{
       fprintf(stderr, "ERR:CreateFileMapping %s\n", path);
       exit(1);
     }
-    ptr = MapViewOfFile(h2, FILE_MAP_READ, 0, 0, 0);
+    ptr = reinterpret_cast<char*>(MapViewOfFile(h2, FILE_MAP_READ, 0, 0, 0));
     if (ptr == NULL) {
       fprintf(stderr, "ERR:MapViewOfFile\n", path);
       exit(1);

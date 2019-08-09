@@ -110,7 +110,7 @@ void PrintRegexVisitor::Visit(UnaryExpr *e)
 
 void PrintParseTreeVisitor::print_state(Expr *e)
 {
-  printf("  0x%p"PRIuS" [label=\"", e);
+  printf("  0x%p [label=\"", e);
   PrintExprVisitor::Print(e);
   printf("\", %s]\n", thema.c_str());
 }
@@ -146,7 +146,7 @@ void PrintParseTreeVisitor::Print(Expr* e)
 
 void DumpExprVisitor::Visit(StateExpr *e)
 {
-  printf("StateExpr(%"PRIuS"): ", e->state_id());
+  printf("StateExpr(%): ", e->state_id());
   PrintExprVisitor::Print(e);
   Transition transition = e->transition();
   std::set<StateExpr*>::iterator iter;
@@ -154,7 +154,7 @@ void DumpExprVisitor::Visit(StateExpr *e)
   printf("follow:");
   iter = transition.follow.begin();
   while (iter != transition.follow.end()) {
-    printf("%"PRIuS", ", (*iter)->state_id());
+    printf("%, ", (*iter)->state_id());
     ++iter;
   }
   puts("\n");
@@ -179,7 +179,7 @@ void DumpExprVisitor::Dump(Expr* e)
   printf("Start: ");
   iter = transition.first.begin();
   while (iter != transition.first.end()) {
-    printf("%"PRIuS", ", (*iter)->state_id());
+    printf("%, ", (*iter)->state_id());
     ++iter;
   }
   puts("\n");

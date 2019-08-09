@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
 #endif
     }
 
-    printf("compile time = %"PRIuS", matching time = %"PRIuS", %s\n",
+    printf("compile time = %, matching time = %, %s\n",
            static_cast<size_t>(compile_time), static_cast<size_t>(matching_time), match ? "match" : "not match." );
   }
   

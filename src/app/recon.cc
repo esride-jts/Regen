@@ -9,6 +9,8 @@
 #include "../sfa.h"
 #include "../generator.h"
 
+#include <time.h>
+
 enum Generate { DOTGEN, REGEN, CGEN, TEXTGEN, KEYWORD };
 
 void Dispatch(Generate generate, const regen::DFA &dfa) {
@@ -242,7 +244,7 @@ int main(int argc, char *argv[]) {
   regen::Regex r = regen::Regex(regex, option);
 
   if (info) {
-    printf("%"PRIuS" chars involved. min length = %"PRIuS", max length = %"PRIuS"\n", r.expr_info().involve.count(), r.min_length(), r.max_length());
+    printf("% chars involved. min length = %, max length = %\n", r.expr_info().involve.count(), r.min_length(), r.max_length());
     return 0;
   } else if (generate == TEXTGEN) {
     srand(seed);
